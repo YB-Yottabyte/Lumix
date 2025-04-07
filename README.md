@@ -5,6 +5,8 @@ Submitted by: **Sai Rithwik Kukunuri**
 
 Time spent: **[5]** hours spent in total
 
+Vist the Site: https://lumix-livid.vercel.app/
+
 ## Required Features
 
 The following functionality **goals** have been completed:
