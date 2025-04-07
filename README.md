@@ -1,7 +1,7 @@
 # Data-Dashboard 
 Submitted by: **Sai Rithwik Kukunuri**
 
-This web app **Veni Vici** lets users discover random things by clicking a button. It shows an image with details like breed, color, or age. Users can ban certain details, and the app will avoid showing them in future results. Also, you save your history and multiple attributes can be added to ban list!
+**Lumix** is a weather app built with the OpenWeather API that shows current weather conditions for various locations. Users can save their favorite places for easy access and view temperature trends through simple graphs. The app showcases practical routing and filtering features through its location management system. It was developed using modern technologies including Shadcn UI, TypeScript, and React to create a smooth user experience.
 
 Time spent: **[5]** hours spent in total
 
@@ -32,7 +32,7 @@ GIF created with GIPHY
 
 ## Notes
 
-Veni Vici! it's just a random content generator and a simple tool that lets you explore and learn about cats from different countries in the world. All the main features are in place, and I've added extra features to make it more easy to use and look over your history!
+The app was built with modern technologies including Shadcn UI, TypeScript, and React to create a smooth and user-friendly experience.
 
 ## License
 
