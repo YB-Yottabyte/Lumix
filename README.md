@@ -24,7 +24,7 @@ The following functionality **goals** have been completed:
 
 Here's a walkthrough of the implemented features:
 
-![via GIPHY](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2ZrdmgwYXU0ZjU1aDR3cXdyMnBpMzc3M3N2eTYxc3UycWR1bnExeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zDNP2YsgO9Hrmooeew/giphy.gif)
+![via GIPHY](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXd1MHRmb2MxOXE3NGpkcTZsYXRhMWxtc2F4ZmJrdXRoNjMzMHZ0OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/C7gD2vz4AztdzMssy0/giphy.gif)
 
 GIF created with GIPHY
 
