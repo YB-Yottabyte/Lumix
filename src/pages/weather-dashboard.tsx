@@ -13,8 +13,15 @@ import { WeatherForecast } from "../components/weather-forecast";
 import { HourlyTemperature } from "../components/hourly-temprature";
 import WeatherSkeleton from "../components/loading-skeleton";
 import { FavoriteCities } from "@/components/favorite-cities";
+import { TemperatureTrendChart } from "../components/temperature-trend-chart";
+import { RainProbabilityChart } from "../components/rain-probability-chart";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export function WeatherDashboard() {
+  const [chartView, setChartView] = useState<"temperature" | "rain">("temperature");
+  const [wikiDetails, setWikiDetails] = useState<string | null>(null); // State to store fetched details
+
   const {
     coordinates,
     error: locationError,
@@ -26,7 +33,6 @@ export function WeatherDashboard() {
   const forecastQuery = useForecastQuery(coordinates);
   const locationQuery = useReverseGeocodeQuery(coordinates);
 
-  // Function to refresh all data
   const handleRefresh = () => {
     getLocation();
     if (coordinates) {
@@ -36,9 +42,18 @@ export function WeatherDashboard() {
     }
   };
 
-  if (locationLoading) {
-    return <WeatherSkeleton />;
-  }
+  // Fetch Wikipedia details for Arizona
+  const fetchLearnMoreData = async () => {
+    try {
+      const response = await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/Arizona');
+      const data = await response.json();
+      setWikiDetails(data.extract); // Save the extracted text from Wikipedia
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  if (locationLoading) return <WeatherSkeleton />;
 
   if (locationError) {
     return (
@@ -90,13 +105,12 @@ export function WeatherDashboard() {
     );
   }
 
-  if (!weatherQuery.data || !forecastQuery.data) {
-    return <WeatherSkeleton />;
-  }
+  if (!weatherQuery.data || !forecastQuery.data) return <WeatherSkeleton />;
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       <FavoriteCities />
+
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold tracking-tight">My Location</h1>
         <Button
@@ -122,10 +136,60 @@ export function WeatherDashboard() {
           <HourlyTemperature data={forecastQuery.data} />
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 items-start">
+        <div className="grid md:grid-cols-2 gap-6 items-start">
           <WeatherDetails data={weatherQuery.data} />
           <WeatherForecast data={forecastQuery.data} />
         </div>
+
+        <div className="space-y-4">
+          <div className="flex gap-2 items-center">
+            <Button
+              variant={chartView === "temperature" ? "default" : "outline"}
+              onClick={() => setChartView("temperature")}
+            >
+              Temperature Trend
+            </Button>
+            <Button
+              variant={chartView === "rain" ? "default" : "outline"}
+              onClick={() => setChartView("rain")}
+            >
+              Rain Probability
+            </Button>
+          </div>
+
+          <div className="text-sm text-muted-foreground">
+            
+              <p>
+                Higher rain probabilities could indicate stormy periods. Carry an umbrella if the percentage is high.
+              </p>
+            
+          </div>
+
+          {chartView === "temperature" ? (
+            <TemperatureTrendChart forecastData={forecastQuery.data} />
+          ) : (
+            <RainProbabilityChart forecastData={forecastQuery.data} />
+          )}
+        </div>
+
+        {/* Learn More Button */}
+        <div className="flex justify-center">
+          <Button 
+            onClick={fetchLearnMoreData} 
+            variant="outline" 
+            className="w-full md:w-auto mt-4"
+          >
+            Learn More About Arizona
+          </Button>
+        </div>
+
+        {/* Display Wikipedia Details */}
+        {wikiDetails && (
+          <div className="mt-6 p-4 border border-gray-200 rounded-md">
+            <h2 className="text-xl font-bold">About Arizona</h2>
+            <p>{wikiDetails}</p>
+          </div>
+        )}
       </div>
     </div>
   );
