@@ -3,7 +3,6 @@ Submitted by: **Sai Rithwik Kukunuri**
 
 **Lumix** is a weather app built with the OpenWeather API that shows current weather conditions for various locations. Users can save their favorite places for easy access and view temperature trends through simple graphs. The app showcases practical routing and filtering features through its location management system. It was developed using modern technologies including Shadcn UI, TypeScript, and React to create a smooth user experience.
 
-Vist the Site: https://lumix-livid.vercel.app/
 
 ## Required Features
 
