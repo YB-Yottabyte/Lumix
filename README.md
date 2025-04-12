@@ -9,16 +9,14 @@ Vist the Site: https://lumix-livid.vercel.app/
 
 The following functionality **goals** have been completed:
 
-- [x] The site has a dashboard displaying a list of data fetched using an API call
-- [x] useEffect React hook and async/await are used
-- [x] The app dashboard includes at least three summary statistics about the data
+- [x] Clicking on an item in the list view displays more details about it	
+- [x] Each detail view of an item has a direct, unique link to that item’s page	
+- [x] The app includes at least two unique charts developed using the fetched data that tell an interesting story	
 - [x] A search bar allows the user to search for an item in the fetched data
-- [x] An additional filter allows the user to restrict displayed items by specified categories
-
+      
 ## Stretch Features
-- [x] Multiple filters can be applied simultaneously
-- [x] Filters use different input types
-- [x] The user can enter specific bounds for filter values
+- [x] The site’s customized dashboard contains more content that explains what is interesting about the data	
+- [x] The site allows users to toggle between different data visualizations	
 
 ## Video Walkthrough
 
